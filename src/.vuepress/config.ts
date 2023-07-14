@@ -1,8 +1,9 @@
 import { defineUserConfig } from "vuepress";
 import theme from "./theme.js";
-
+import { searchProPlugin } from "vuepress-plugin-search-pro";
 
 export default defineUserConfig({
+
   base: "/",
 
   locales: {
@@ -11,17 +12,36 @@ export default defineUserConfig({
       title: "BLOGS-LIOBIO",
       description: "blogs",
     }
-    // "/zh/": {
-    //   lang: "zh-CN",
-    //   title: "博客演示",
-    //   description: "vuepress-theme-hope 的博客演示",
-    // },
   },
+  plugins: [
+    // searchProPlugin(
+    //   {
+    //     indexContent: true,
+    //     hotReload: true,
+    //     customFields: [
+    //       {
+    //         getter: (page) => page.frontmatter.category as string[],
+    //         formatter: "分类：$content",
+    //       },
+    //       {
+    //         getter: (page) => page.frontmatter.tag as string[],
+    //         formatter: "标签：$content",
+    //       },
+    //     ],
+    //   }),
 
-
+    searchProPlugin({
+      indexContent: true,
+      hotReload: true,
+      customFields: [
+        {
+          getter: ({ frontmatter }) => frontmatter.tag as string[],
+          formatter: `Tag: $content`,
+        },
+      ],
+    }),
+  ],
   theme,
 
-  // Enable it with pwa
-  // shouldPrefetch: false,
 });
 
