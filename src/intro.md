@@ -1,8 +1,8 @@
 ---
 icon: circle-info
-cover: /assets/images/cover3.jpg
+# cover: /assets/images/cover3.jpg
 ---
 
-# Intro Page
+# 介绍页
 
-Place your introduction and profile here.
+技术业务能力非常强，能够熟练编写CRUD!!!
