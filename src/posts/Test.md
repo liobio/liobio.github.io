@@ -27,7 +27,6 @@ tag:
 
 ```c#
 Public Class MyQueue<T> {
-    
     private T[] datas;
     private int head;
     private int tail;
